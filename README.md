@@ -1,4 +1,3 @@
-```
 # QuickPay
 
 A secure and user-friendly **Mobile Financial Service (MFS)** web application inspired by platforms like **bKash** and **Nagad**. It enables users to perform essential financial transactions, such as **sending money, cash-in, cash-out, and balance inquiries**.
