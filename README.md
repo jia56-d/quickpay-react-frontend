@@ -2,6 +2,10 @@
 
 A secure and user-friendly **Mobile Financial Service (MFS)** web application inspired by platforms like **bKash** and **Nagad**. It enables users to perform essential financial transactions, such as **sending money, cash-in, cash-out, and balance inquiries**.
 
+## Admin Credentials
+Mobile Number: 01601321800
+pin: 12345
+
 ## Table of Contents
 
 - [Introduction](#introduction)
