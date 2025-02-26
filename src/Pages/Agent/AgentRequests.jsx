@@ -10,7 +10,7 @@ const AgentRequests = () => {
         if (!token) return setMessage("Please log in to proceed.");
 
         try {
-            const response = await fetch("http://localhost:5000/api/agent/cash-request", {
+            const response = await fetch("https://quickpay-server-1.onrender.com/api/agent/cash-request", {
                 method: "POST",
                 headers: { "Authorization": `Bearer ${token}` },
             });
@@ -29,7 +29,7 @@ const AgentRequests = () => {
         if (!token) return setMessage("Please log in to proceed.");
 
         try {
-            const response = await fetch("http://localhost:5000/api/agent/withdraw-request", {
+            const response = await fetch("https://quickpay-server-1.onrender.com/api/agent/withdraw-request", {
                 method: "POST",
                 headers: { "Authorization": `Bearer ${token}` },
             });

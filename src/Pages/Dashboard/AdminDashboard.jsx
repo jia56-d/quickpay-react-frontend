@@ -10,7 +10,7 @@ const AdminDashboard = () => {
 
     const fetchUsers = async () => {
         const token = localStorage.getItem("token");
-        const response = await fetch("http://localhost:5000/api/admin/users", {
+        const response = await fetch("https://quickpay-server-1.onrender.com/api/admin/users", {
             headers: { Authorization: `Bearer ${token}` },
         });
         const data = await response.json();
@@ -19,7 +19,7 @@ const AdminDashboard = () => {
 
     const handleApproveAgent = async (agentId) => {
         const token = localStorage.getItem("token");
-        const response = await fetch("http://localhost:5000/api/admin/approve-agent", {
+        const response = await fetch("https://quickpay-server-1.onrender.com/api/admin/approve-agent", {
             method: "POST",
             headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
             body: JSON.stringify({ agentId }),
@@ -32,7 +32,7 @@ const AdminDashboard = () => {
 
     const handleBlockUser = async (userId) => {
         const token = localStorage.getItem("token");
-        const response = await fetch("http://localhost:5000/api/admin/block-user", {
+        const response = await fetch("https://quickpay-server-1.onrender.com/api/admin/block-user", {
             method: "POST",
             headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
             body: JSON.stringify({ userId }),

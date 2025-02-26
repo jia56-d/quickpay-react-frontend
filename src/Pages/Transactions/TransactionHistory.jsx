@@ -10,7 +10,7 @@ const TransactionHistory = () => {
         const fetchTransactions = async () => {
             const token = localStorage.getItem("token");
             try {
-                const response = await fetch("http://localhost:5000/api/transactions/history", {
+                const response = await fetch("https://quickpay-server-1.onrender.com/api/transactions/history", {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 const data = await response.json();

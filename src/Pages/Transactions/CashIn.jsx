@@ -17,7 +17,7 @@ const CashIn = () => {
         }
 
         try {
-            const response = await fetch("http://localhost:5000/api/transactions/cash-in", {
+            const response = await fetch("https://quickpay-server-1.onrender.com/api/transactions/cash-in", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

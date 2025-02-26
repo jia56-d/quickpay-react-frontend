@@ -12,7 +12,7 @@ const AdminTransactionHistory = () => {
             if (!token) return;
 
             try {
-                const response = await fetch(`http://localhost:5000/api/admin/transactions/${userId}`, {
+                const response = await fetch(`https://quickpay-server-1.onrender.com/api/admin/transactions/${userId}`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 const data = await response.json();

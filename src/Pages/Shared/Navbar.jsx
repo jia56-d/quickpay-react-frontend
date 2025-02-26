@@ -18,7 +18,7 @@ const Navbar = () => {
       if (!token) return;
 
       try {
-        const response = await fetch("http://localhost:5000/api/notifications", {
+        const response = await fetch("https://quickpay-server-1.onrender.com/api/notifications", {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await response.json();
@@ -56,7 +56,7 @@ const Navbar = () => {
     if (!token) return;
 
     try {
-      await fetch("http://localhost:5000/api/notifications/read-all", {
+      await fetch("https://quickpay-server-1.onrender.com/api/notifications/read-all", {
         method: "PUT",
         headers: { Authorization: `Bearer ${token}` },
       });

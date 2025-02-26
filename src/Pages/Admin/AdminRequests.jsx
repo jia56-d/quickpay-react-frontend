@@ -10,7 +10,7 @@ const AdminRequests = () => {
             if (!token) return;
 
             try {
-                const response = await fetch("http://localhost:5000/api/admin/pending-requests", {
+                const response = await fetch("https://quickpay-server-1.onrender.com/api/admin/pending-requests", {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 const data = await response.json();
@@ -30,7 +30,7 @@ const AdminRequests = () => {
         if (!token) return;
     
         try {
-            const response = await fetch(`http://localhost:5000/api/admin/approve-request/${requestId}`, {
+            const response = await fetch(`https://quickpay-server-1.onrender.com/api/admin/approve-request/${requestId}`, {
                 method: "PUT",
                 headers: { Authorization: `Bearer ${token}` },
             });
@@ -51,7 +51,7 @@ const AdminRequests = () => {
         if (!token) return;
 
         try {
-            const response = await fetch(`http://localhost:5000/api/admin/reject-request/${requestId}`, {
+            const response = await fetch(`https://quickpay-server-1.onrender.com/api/admin/reject-request/${requestId}`, {
                 method: "PUT",
                 headers: { Authorization: `Bearer ${token}` },
             });

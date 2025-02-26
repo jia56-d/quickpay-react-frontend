@@ -17,7 +17,7 @@ const CashOut = () => {
         }
 
         try {
-            const response = await fetch("http://localhost:5000/api/transactions/cash-out", {
+            const response = await fetch("https://quickpay-server-1.onrender.com/api/transactions/cash-out", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
