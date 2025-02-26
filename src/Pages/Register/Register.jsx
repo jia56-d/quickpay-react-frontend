@@ -9,28 +9,29 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-//   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleSignUp = async (data) => {
-    console.log("User signup data:", data);
+    console.log(data)
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
 
-    // try {
-    //   const response = await fetch("http://localhost:5000/api/auth/register", {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify(data),
-    //   });
+      const result = await response.json();
 
-    //   const result = await response.json();
-    //   if (response.ok) {
-    //     alert("Registration Successful!");
-    //     navigate("/login");
-    //   } else {
-    //     alert(result.message);
-    //   }
-    // } catch (error) {
-    //   console.error("Registration Error:", error);
-    // }
+      if (response.ok) {
+        alert("Registration Successful!");
+        navigate("/login");
+      } else {
+        alert(result.message);
+      }
+    } catch (error) {
+      console.error("Registration Error:", error);
+      alert("Something went wrong. Please try again.");
+    }
   };
 
   return (

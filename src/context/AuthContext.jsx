@@ -1,30 +1,48 @@
-import { createContext, useState, useEffect } from "react";
-import axios from "../utils/api";
+import React, { createContext, useContext, useState, useEffect } from "react";
+import { jwtDecode } from "jwt-decode";
 
-export const AuthContext = createContext();
+const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+  const [userRole, setUserRole] = useState(null);
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) setUser(JSON.parse(storedUser));
+    const token = localStorage.getItem("token");
+    if (token) {
+      try {
+        const decoded = jwtDecode(token);
+        setUserRole(decoded.accountType);
+        setUser({ id: decoded.userId, accountType: decoded.accountType });
+      } catch (error) {
+        console.error("Invalid Token:", error);
+        logout();
+      }
+    }
   }, []);
 
-  const login = async (credentials) => {
-    const { data } = await axios.post("/auth/login", credentials);
-    setUser(data.user);
-    localStorage.setItem("user", JSON.stringify(data.user));
+  const login = (token) => {
+    try {
+      localStorage.setItem("token", token);
+      const decoded = jwtDecode(token);
+      setUserRole(decoded.accountType);
+      setUser({ id: decoded.userId, accountType: decoded.accountType });
+    } catch (error) {
+      console.error("Token Decode Error:", error);
+    }
   };
 
   const logout = () => {
+    localStorage.removeItem("token");
+    setUserRole(null);
     setUser(null);
-    localStorage.removeItem("user");
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ userRole, user, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
 };
+
+export const useAuth = () => useContext(AuthContext);
