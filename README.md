@@ -31,7 +31,7 @@ Each transaction generates a **unique transaction ID** stored in the database.
 
 ## 🔗 Live Demo  
 
-🌍 **Try QuickPay here:** [QuickPay Live](https://your-live-demo-link.com)  
+🌍 **Try QuickPay here:** [QuickPay Live](https://quickpay-cash.netlify.app/)  
 
 (*Replace this with your actual deployment link*)
 
